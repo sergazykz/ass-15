@@ -1,26 +1,35 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <PageHeader v-bind="{title:'Your '}" />
+  <PageSidebarMenu
+    :menuItems="menuItems"
+  />
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import PageSidebarMenu from './contents/PageSidebarMenu.vue'
+import PageHeader from './contents/PageHeader.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
-  }
+    PageSidebarMenu,
+    PageHeader,
+  },
+  data() {
+    return {
+      menuItems: [
+    { text: 'Dashboard', link: '#dashboard', icon: 'bars', active: true },
+    { text: 'Wallet', link: '#wallet', icon: 'wallet', active: false },
+    { text: 'Invoices', link: '#invoices', icon: 'file-invoice',icon2 : 'envelope', active: false },
+    { text: 'Create Invoices', link: '#invoices', icon: 'square-plus', active: false },
+    { text: 'Card', link: '#invoices', icon: 'credit-card',icon2 : 'chevron-down', active: false },
+    { text: 'Transaction', link: '#invoices', icon: 'rotate', active: false },
+    { text: 'Client', link: '#invoices', icon: 'user', active: false }
+  ],
+    };
+  },
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
 </style>
